@@ -11,7 +11,6 @@ public class CreateUsersView
 {
 
     private readonly IUserRepository userRepository;
-    private int IdCount;
 
     public CreateUsersView(IUserRepository userRepository)
     {
@@ -26,11 +25,10 @@ public class CreateUsersView
         Console.WriteLine("Password:");
         string? password = Console.ReadLine();
 
-        User user = new User(001, username, password);
+        User added = await userRepository.AddAsync(new User(0, username, password));
 
-        User added = await userRepository.AddAsync(user);
-        
+        Console.WriteLine($"User {added.Username} created with Id {added.Id}");
+
     }
-
 
 }

@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ICommandLine\ICommandLine.csproj" />
     <ProjectReference Include="..\InMemoryRepositories\InMemoryRepositories.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj" />
