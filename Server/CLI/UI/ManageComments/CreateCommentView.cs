@@ -51,6 +51,7 @@ public class CreateCommentView
             }
         }
 
+
         int postId;
 
         Console.WriteLine("PostId:");

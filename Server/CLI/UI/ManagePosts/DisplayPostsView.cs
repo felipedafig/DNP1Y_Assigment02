@@ -18,7 +18,7 @@ public class DisplayPostsView
     public void DisplayPostsOverview()
     {
 
-        List<Post> posts = postRepository.GetManyAsync().ToList();
+        List<Post> posts = postRepository.GetMany().ToList();
 
         foreach (Post post in posts)
         {
@@ -58,7 +58,7 @@ public class DisplayPostsView
         Console.WriteLine($"Title: {post.Title}");
         Console.WriteLine($"Body: {post.Body}");
         Console.WriteLine("Comments:");
-        List<Comment> comments = commentRepository.GetManyAsync().ToList();
+        List<Comment> comments = commentRepository.GetMany().ToList();
 
         foreach (Comment comment in comments)
         {

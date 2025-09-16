@@ -9,10 +9,7 @@ public class UserInMemoryRepository : IUserRepository
     private List<User> Users;
     public UserInMemoryRepository()
     {
-        User user = new(001,"mateus","123");
-    
-        
-        AddAsync(user);
+        Users = new List<User>();
     }
     public Task<User> AddAsync(User User)
     {
@@ -21,11 +18,6 @@ public class UserInMemoryRepository : IUserRepository
         : 1;
         Users.Add(User);
         return Task.FromResult(User);
-    }
-
-    public Task<Post> AddAsync(Post post)
-    {
-        throw new NotImplementedException();
     }
 
     public Task DeleteAsync(int id)
@@ -42,7 +34,7 @@ public class UserInMemoryRepository : IUserRepository
     }
 
 
-    public IQueryable<User> GetManyAsync()
+    public IQueryable<User> GetMany()
     {
         return Users.AsQueryable();
     }
@@ -75,18 +67,5 @@ public class UserInMemoryRepository : IUserRepository
         return Task.CompletedTask;
     }
 
-    public Task UpdateAsync(Post post)
-    {
-        throw new NotImplementedException();
-    }
 
-    IQueryable<Post> IUserRepository.GetManyAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<Post> IUserRepository.GetSingleAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
 }

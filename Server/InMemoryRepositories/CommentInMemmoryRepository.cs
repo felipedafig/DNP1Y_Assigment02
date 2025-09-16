@@ -9,9 +9,7 @@ public class CommentInMemoryRepository : ICommentRepository
     private List<Comment> Comments;
     public CommentInMemoryRepository()
     {
-        Comment comment = new(001, "I want...", 001);
-
-        AddAsync(comment);
+        Comments = new List<Comment>();
     }
     public Task<Comment> AddAsync(Comment Comment)
     {
@@ -22,10 +20,6 @@ public class CommentInMemoryRepository : ICommentRepository
         return Task.FromResult(Comment);
     }
 
-    public Task<Post> AddAsync(Post post)
-    {
-        throw new NotImplementedException();
-    }
 
     public Task DeleteAsync(int id)
     {
@@ -41,7 +35,7 @@ public class CommentInMemoryRepository : ICommentRepository
     }
 
 
-    public IQueryable<Comment> GetManyAsync()
+    public IQueryable<Comment> GetMany()
     {
         return Comments.AsQueryable();
     }
@@ -74,18 +68,5 @@ public class CommentInMemoryRepository : ICommentRepository
         return Task.CompletedTask;
     }
 
-    public Task UpdateAsync(Post post)
-    {
-        throw new NotImplementedException();
-    }
 
-    IQueryable<Post> ICommentsRepository.GetManyAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<Post> ICommentsRepository.GetSingleAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
 }
